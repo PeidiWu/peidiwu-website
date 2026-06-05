@@ -9,17 +9,17 @@ body {
 }
 
 .site {
-  max-width: 980px;
-  margin: 42px auto;
-  padding: 0 28px;
-  display: grid;
-  grid-template-columns: 600px 180px;
-  column-gap: 90px;
-  align-items: start;
+    max-width: 900px;
+    margin: 42px auto;
+    padding: 0 28px;
+    display: grid;
+    grid-template-columns: 520px 160px;
+    column-gap: 120px;
+    align-items: start;
 }
 
 .content {
-  max-width: 600px;
+  max-width: 520px;
 }
 
 .sidebar {
