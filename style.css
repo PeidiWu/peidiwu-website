@@ -78,6 +78,10 @@ ul, ol {
     padding-left: 18px;
 }
 
+p + ul {
+  margin-top: 2px;
+}
+
 li {
     margin: 0;
     line-height: 1.5;
