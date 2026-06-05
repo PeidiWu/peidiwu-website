@@ -1,0 +1,134 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Wilks Formula Is Shitty - Peidi Wu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="site">
+
+  <main class="content">
+
+    <h1>The Wilks Formula Is Shitty</h1>
+
+    <p><em>May 2018</em></p>
+
+    <p>
+      In powerlifting, the Wilks Formula is by far the most popular
+      standard of comparison for strength across different weight
+      classes and genders. Recently, people have been complaining that
+      this formula favors underrepresented classes (i.e. super-lights
+      and super-heavies). I very much agree with this sentiment.
+    </p>
+
+    <p>
+      Below are the all-time top 10 Wilks coefficient scores for raw
+      lifters based on drug-tested performances. Extreme weight classes
+      are highlighted in yellow.
+    </p>
+
+    <img src="assets/wilks-top10.png"
+         alt="Top 10 Wilks coefficient scores">
+
+    <p>
+      The #1 lifter, Ray Williams, weighs 402 lb and the #3 lifter,
+      Sergey Fedosienko, is 4'9". Both compete in classes with very
+      little participation, yet they rank among the greatest lifters
+      ever according to Wilks.
+    </p>
+
+    <p>
+      Coincidence? Or a broken formula?
+    </p>
+
+    <img src="assets/bodyweight-distribution.png"
+         alt="Bodyweight distribution of competitors">
+
+    <h2>Existing Alternatives</h2>
+
+    <p>
+      The simplest measure of relative strength is bodyweight multiple
+      (total/bodyweight), but this dramatically favors lighter lifters.
+      Lamar Gant deadlifted 661 lb at 132 lb bodyweight for a 5x
+      multiple, while Eddie Hall deadlifted 1,102 lb at 440 lb
+      bodyweight for only a 2.5x multiple.
+    </p>
+
+    <p>
+      No way in hell is Lamar Gant twice as impressive a deadlifter as
+      Eddie Hall.
+    </p>
+
+    <h2>A Better Formula</h2>
+
+    <p>
+      Rather than asking who lifted the most weight relative to
+      bodyweight, I would ask a different question:
+    </p>
+
+    <blockquote>
+      Which athlete most outperformed their peers?
+    </blockquote>
+
+    <p>
+      Statistically, that means identifying which athlete performed the
+      greatest number of standard deviations above the mean within
+      their group.
+    </p>
+
+    <h2>On to the Math</h2>
+
+    <img src="assets/male-scatter.png"
+         alt="Male powerlifting totals by bodyweight">
+
+    <img src="assets/female-scatter.png"
+         alt="Female powerlifting totals by bodyweight">
+
+    <p>
+      After examining the data, I found that a simple linear model
+      explained most of the relationship between bodyweight and total.
+      The more complicated polynomial models added complexity without
+      materially improving fit.
+    </p>
+
+    <h2>Results</h2>
+
+    <img src="assets/peidi-top10.png"
+         alt="Top 10 powerlifters using the Peidi Formula">
+
+    <p>
+      Overall, the rankings produced by the new formula seem
+      substantially more reasonable than Wilks.
+    </p>
+
+    <h2>Comparing Non-Tested Athletes</h2>
+
+    <img src="assets/non-tested-athletes.png"
+         alt="Comparison of non-tested athletes">
+
+    <h2>Raw Data Used</h2>
+
+    <p>
+      Thanks to OpenPowerlifting for making the data freely available.
+    </p>
+
+  </main>
+
+  <aside class="sidebar">
+    <div class="name">Peidi Wu</div>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/how-i-finally-hit-2000-on-lichess.html">2000 on Lichess</a>
+      <a href="/the-wilks-formula-is-shitty.html">Wilks Formula</a>
+    </nav>
+  </aside>
+
+</div>
+
+</body>
+</html>
+```
