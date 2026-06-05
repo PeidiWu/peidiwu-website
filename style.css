@@ -29,6 +29,14 @@ body {
   line-height: 1.5;
 }
 
+.table-note {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #666;
+  margin-top: -4px;
+  margin-bottom: 16px;
+}
+
 .name {
   margin-bottom: 18px;
   font-weight: bold;
