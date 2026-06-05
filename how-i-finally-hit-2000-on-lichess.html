@@ -14,10 +14,10 @@
         <a href="/how-i-finally-hit-2000-on-lichess.html">How I finally hit 2000 on Lichess</a>
       </nav>
     </aside>
-    <main class="content">
+    <main class="content" id="top">
 <h1>How I Finally Hit 2000 on Lichess, and Improved my Chess
 Rating by 200 Points in 16 Days</h1>
-<p>Progress graph [1]:<img alt="Lichess classical rating progress graph reaching 2000" src="assets/lichess-progress.png"/></p>
+<p>Progress graph <sup><a href="#note1">[1]</a></sup>:<img alt="Lichess classical rating progress graph reaching 2000" src="assets/lichess-progress.png"/></p>
 <p>This guide won’t teach you any easy tricks for fast rating jumps.
 Improving at chess requires immense mental focus. I won many games just
 because I wanted a win more and thought harder and longer than my
@@ -66,7 +66,7 @@ of playing seriously everyday and hitting a 2000 rating which i achieved
 on February 26th.</p>
 <h2>What Won’t Help You Improve Much</h2>
 <h3>1. Puzzles</h3>
-<p>It’s 100% true that tactics [2] can get you to 2000+ which is like
+<p>It’s 100% true that tactics <sup><a href="#note2">[2]</a></sup> can get you to 2000+ which is like
 2200+ online. But puzzles won’t improve your tactics nearly as much as
 studying mistakes from your own games.</p>
 <p>The thing is, both solving puzzles and spotting tactics in game are
@@ -80,7 +80,7 @@ three scientists from Microsoft, Cornell and Harvard scoured 200 million
 chess games played online between amateurs to find patterns in human
 mistake making. They found something extremely interesting. The best
 predictor for blunder rates, translating closely to major tactical
-errors [3], is not the rating of the player, but the complexity of the
+errors <sup><a href="#note3">[3]</a></sup>, is not the rating of the player, but the complexity of the
 board position.</p>
 <p>This is a profoundly unexpected result. You make more blunders than
 Grandmasters less because they recognize tactical patterns faster, but
@@ -138,7 +138,7 @@ have to ever play an end game. Blunders happen all the time even up to
 <h3>3. Studying Openings</h3>
 <p>I played the <a href="https://en.wikipedia.org/wiki/Sokolsky_Opening">Orangutan/Polish
 Opening</a> (1. B4) for the majority of my climb to 2000. The
-opening sucks but it doesn’t matter [4]. Just pick an opening that
+opening sucks but it doesn’t matter <sup><a href="#note4">[4]</a></sup>. Just pick an opening that
 you’re somewhat comfortable with and stick with it.</p>
 <p>Sticking to a few openings is better than knowing a variety of
 openings. If you employ a variety of openings, you are more prone to
@@ -253,12 +253,12 @@ article</a> on this based on analysis of almost one million
 games.</p>
 <h3>A Protected Pawn on E5 is Crushing, and D5 is Pretty Good
 Too</h3>
-<p>A deep protected [5] central pawn chokes your opponent of so much
+<p>A deep protected <sup><a href="#note5">[5]</a></sup> central pawn chokes your opponent of so much
 space that over the next five to ten moves, you will progressively mount
 an overwhelming advantage in development. Lichess evaluations use the
 Stockfish engine which doesn’t show too much of an advantage in these
 positions, but newer and stronger neural net based engines like
-AlphaZero confirms that a large advantage exists [6].</p>
+AlphaZero confirms that a large advantage exists <sup><a href="#note6">[6]</a></sup>.</p>
 <h3>Where To Place Your Bishop, and Other Opening
 Principles</h3>
 <p>Having your bishop unpin your knight as seen below is usually better
@@ -273,30 +273,52 @@ bishop that can unpin their knight. You can take advantage of your
 opponent’s misplaced bishop.</p>
 <p>Fianchetto is good as well. It is well positioned to pressure the
 center and also protect your king or attack the enemy king.</p>
+      
 <h2>Notes</h2>
-<p>[1] After peaking in February, I started taking chess less seriously
+      <p id="note1">
+  <strong>[1]</strong> After peaking in February, I started taking chess less seriously
 and my rating dipped back down a bit. As you can see in the chart, I
 played far fewer games in all of March to November than those sixteen
-days in February.</p>
-<p>[2] In chess, a tactic refers to a sequence of moves that limits the
+days in February.
+  <a href="#top">↩</a>
+</p>
+
+<p id="note2">
+  <strong>[2]</strong> In chess, a tactic refers to a sequence of moves that limits the
 opponent's options and may result in tangible gain. Tactics are usually
 contrasted with strategy, in which advantages take longer to be
-realized, and the opponent is less constrained in responding.</p>
-<p>[3] Blunders are generally defined by 300 centipawn loss or more.
+realized, and the opponent is less constrained in responding.
+  <a href="#top">↩</a>
+</p>
+
+<p id="note3">
+  <strong>[3]</strong> Blunders are generally defined by 300 centipawn loss or more.
 Centipawn is the common measure used to compare which side is winning
 during a chess game. By definition, 100 centipawns is equivalent to the
 average value of a starting pawn. The centipawn advantage shifts with
 every move as positional advantages arise and pieces get captured.
 Blunders are almost equivalent to tactical mistakes because it’s almost
 impossible to observe a large centipawn shift without a forced sequence
-leading to a tangible gain.</p>
-<p>[4] It actually does matter, because I looked at my win rates by
+leading to a tangible gain.
+  <a href="#top">↩</a>
+</p>
+
+<p id="note4">
+  <strong>[4]</strong> It actually does matter, because I looked at my win rates by
 opening and I won far more as black than white. My point still stands
 that you don’t need to micro-tweak the opening you use and study deep
 into all the different opening lines. Just get comfortable with one
-opening and stick with it, unless you notice major problems.</p>
-<p>[5] Protected pawn means protected by another pawn here.</p>
-<p>[6] Stockfish and most popular chess engines prior to 2017 use <a href="https://en.wikipedia.org/wiki/Minimax">minimax</a>
+opening and stick with it, unless you notice major problems.
+  <a href="#top">↩</a>
+</p>
+
+<p id="note5">
+  <strong>[5]</strong> Protected pawn means protected by another pawn here.
+  <a href="#top">↩</a>
+</p>
+
+<p id="note6">
+  <strong>[6]</strong> Stockfish and most popular chess engines prior to 2017 use <a href="https://en.wikipedia.org/wiki/Minimax">minimax</a>
 algorithms where each move is evaluated assuming that the opponent
 responds optimally, or whatever the engine believes is the most optimal.
 The engine usually only looks a few moves ahead due to the exponential
@@ -309,7 +331,9 @@ opponent which is not representative of human play. AlphaZero uses <a href="http
 conclusion of a win/loss/draw. This is much stronger for positional
 analysis where advantages can take many moves to pan out. MCTS also has
 the advantage of not assuming perfect defense from opponents like
-minimax.</p>
+minimax.
+  <a href="#top">↩</a>
+</p>
 
    <footer>
       <a href="https://spotter.ai/">Spotter</a> ·
