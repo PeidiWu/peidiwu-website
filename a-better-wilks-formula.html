@@ -14,6 +14,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A Better Wilks Formula - Peidi Wu</title>
   <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .wilks-calculator {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.5rem 0 2rem;
+      max-width: 520px;
+    }
+
+    .wilks-calculator label {
+      display: block;
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+
+    .wilks-calculator input,
+    .wilks-calculator select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      font: inherit;
+    }
+
+    .wilks-calculator button {
+      margin-top: 1rem;
+      padding: 0.5rem 0.75rem;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .wilks-result {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+
+    .wilks-result strong {
+      display: inline-block;
+      min-width: 7rem;
+    }
+  </style>
 </head>
 <body>
   <div class="site">
@@ -260,6 +303,29 @@
         percentile relative to the best performances of other drug-tested raw athletes. <sup id="note5-ref"><a href="#note5">[5]</a></sup>
       </p>
 
+      <div class="wilks-calculator" id="peidi-calculator">
+        <h3>Peidi Formula Calculator</h3>
+
+        <label for="calc-sex">Sex</label>
+        <select id="calc-sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <label for="calc-bodyweight">Bodyweight (lb)</label>
+        <input id="calc-bodyweight" type="number" min="1" step="0.1" placeholder="e.g. 197">
+
+        <label for="calc-total">Total (lb)</label>
+        <input id="calc-total" type="number" min="1" step="0.1" placeholder="e.g. 2015">
+
+        <button type="button" id="calc-button">Calculate</button>
+
+        <div class="wilks-result" id="calc-result" aria-live="polite">
+          Enter bodyweight and total to calculate a Peidi Score.
+        </div>
+      </div>
+
+
       <h2>Top 10 Powerlifters by Gender Using the Peidi Formula (Raw, Drug-Tested)</h2>
 
       <h3>MALES</h3>
@@ -374,6 +440,12 @@
         and wraps, I would need to do further analysis to confirm.
       </p>
 
+      <h2>Raw Data Used</h2>
+
+      <p>Thanks to openpowerlifting.org for making the data freely available.</p>
+
+      <p>A csv of the data used can be downloaded <a href="/wp-content/uploads/2018/05/openpowerlifting-cleaned.csv">here</a>.</p>
+
       <h2>Notes</h2>
 
       <p id="note1">[1] Ben Pollack’s comments about the Wilks Formula: <a href="https://www.reddit.com/r/powerlifting/comments/74r14f/greatest_wilks_scores/do0ksv5/?context=3">https://www.reddit.com/r/powerlifting/comments/74r14f/greatest_wilks_scores/do0ksv5/?context=3</a> <a href="#note1-ref">↩</a></p>
@@ -400,9 +472,65 @@
       <div class="name"><a href="/">Peidi Wu</a></div>
       <nav class="nav">
         <a href="/how-i-finally-hit-2000-on-lichess.html">Hit 2000 on Lichess</a>
-        <a href="/a-better-wilks-formula.html">Wilks Formula</a>
+        <a href="/a-better-wilks-formula.html">A Better Wilks Formula</a>
       </nav>
     </aside>
   </div>
+
+  <script>
+    (function () {
+      function normalCdf(z) {
+        // Abramowitz and Stegun approximation for the standard normal CDF.
+        var sign = z < 0 ? -1 : 1;
+        z = Math.abs(z) / Math.sqrt(2);
+        var t = 1 / (1 + 0.3275911 * z);
+        var a1 = 0.254829592;
+        var a2 = -0.284496736;
+        var a3 = 1.421413741;
+        var a4 = -1.453152027;
+        var a5 = 1.061405429;
+        var erf = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-z * z);
+        return 0.5 * (1 + sign * erf);
+      }
+
+      function calculatePeidiScore(sex, bodyweight, total) {
+        if (sex === "female") {
+          return (316.111 * total) / (bodyweight + 255.911) - 150.865;
+        }
+
+        return 0.397958 * total - 1.31975 * bodyweight + 149.823;
+      }
+
+      function calculate() {
+        var sex = document.getElementById("calc-sex").value;
+        var bodyweight = parseFloat(document.getElementById("calc-bodyweight").value);
+        var total = parseFloat(document.getElementById("calc-total").value);
+        var result = document.getElementById("calc-result");
+
+        if (!bodyweight || !total || bodyweight <= 0 || total <= 0) {
+          result.textContent = "Please enter a positive bodyweight and total.";
+          return;
+        }
+
+        var score = calculatePeidiScore(sex, bodyweight, total);
+        var zScore = (score - 350) / 100;
+        var percentile = normalCdf(zScore) * 100;
+
+        result.innerHTML =
+          "<p><strong>Peidi Score:</strong> " + Math.round(score) + "</p>" +
+          "<p><strong>Z-score:</strong> " + zScore.toFixed(2) + "</p>" +
+          "<p><strong>Percentile:</strong> " + percentile.toFixed(2) + "%</p>";
+      }
+
+      document.getElementById("calc-button").addEventListener("click", calculate);
+
+      document.getElementById("peidi-calculator").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          calculate();
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
