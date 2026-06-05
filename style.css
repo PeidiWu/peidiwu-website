@@ -73,13 +73,14 @@ p {
 }
 
 ul, ol {
-  margin-top: 8px;
-  margin-bottom: 18px;
-  padding-left: 24px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    padding-left: 18px;
 }
 
 li {
-  margin-bottom: 6px;
+    margin: 0;
+    line-height: 1.5;
 }
 
 a {
