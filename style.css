@@ -19,7 +19,7 @@ body {
 }
 
 .content {
-  max-width: 520px;
+  max-width: 450px;
 }
 
 .sidebar {
@@ -61,7 +61,7 @@ h3 {
 }
 
 p {
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
 }
 
 ul, ol {
